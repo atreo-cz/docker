@@ -1,0 +1,15 @@
+{
+	"name": "atreo/images",
+	"license": "MIT",
+	"description": "",
+	"homepage": "http://www.atreo.cz",
+	"authors": [
+		{ "name": "Martin Pánek", "homepage": "http://www.martinpanek.cz", "email": "kontakt@martinpanek.cz" }
+	],
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		}
+	},
+	"bin": ["src/bin/start.sh"]
+}
