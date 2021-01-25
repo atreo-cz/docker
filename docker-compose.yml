@@ -32,7 +32,7 @@ services:
 
     php:
         build:
-            context: ./local-images/php
+            context: ./example/docker/php
             args:
                 www_data_uid: 501
                 www_data_gid: 20
