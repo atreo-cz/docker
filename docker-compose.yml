@@ -1,0 +1,59 @@
+version: '3.7'
+volumes:
+    api-sync-example:
+        external: true
+    api-sync-www-example:
+        external: true
+    api-sync-vendor-example:
+        external: true
+    web-sync-example:
+        external: true
+    web-sync-node-modules-example:
+        external: true
+
+services:
+    mysql:
+        image: atreo/mysql:8.0.22
+        restart: always
+        volumes:
+            - ./mysql-data:/var/lib/mysql
+        ports:
+            - 3636:3306
+
+    nginx:
+        image: atreo/nginx:1.19.6
+        volumes:
+            - api-sync-www-example:/srv/app/www
+            - api-sync-vendor-example:/srv/app/vendor
+        ports:
+            - '8080:80'
+        depends_on:
+            - php
+
+    php:
+        build:
+            context: ./local-images/php
+            args:
+                www_data_uid: 501
+                www_data_gid: 20
+        volumes:
+            - api-sync-example:/srv/app
+            - api-sync-www-example:/srv/app/www
+            - api-sync-vendor-example:/srv/app/vendor
+
+    adminer:
+        image: atreo/adminer:4.7.8
+        ports:
+            - '1111:80'
+        depends_on:
+            - mysql
+
+    node:
+        image: atreo/node:15.5.1
+        volumes:
+            - web-sync-example:/srv/app
+            - web-sync-node-modules-example:/srv/app/node_modules
+        ports:
+            - 4444:4444
+        depends_on:
+            - mysql

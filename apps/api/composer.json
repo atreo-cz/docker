@@ -1,0 +1,11 @@
+{
+    "name": "atreo/api",
+    "description": "Api demo",
+    "authors": [
+        {
+            "name": "Martin Pánek",
+            "email": "kontakt@martinpanek.cz"
+        }
+    ],
+    "require": {}
+}

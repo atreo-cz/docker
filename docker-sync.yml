@@ -1,0 +1,41 @@
+version: '2'
+syncs:
+    api-sync-example:
+        sync_userid: 501
+        src: './apps/api'
+        sync_excludes:
+            - .git
+            - .idea
+            - .DS_Store
+            - nbproject
+            - var/cache
+            - www
+            - vendor
+        host_disk_mount_mode: 'delegated'
+
+    api-sync-www-example:
+        sync_userid: 501
+        src: './apps/api/www'
+        host_disk_mount_mode: 'cached'
+
+    api-sync-vendor-example:
+        sync_userid: 501
+        src: './apps/api/vendor'
+        host_disk_mount_mode: 'cached'
+
+    web-sync-example:
+        sync_userid: 501
+        src: './apps/web'
+        sync_excludes:
+            - .git
+            - .idea
+            - .DS_Store
+            - nbproject
+            - node_modules
+            - www
+        host_disk_mount_mode: 'delegated'
+
+    web-sync-node-modules-example:
+        sync_userid: 501
+        src: './apps/web/node_modules'
+        host_disk_mount_mode: 'cached'
