@@ -1,6 +1,18 @@
-## How to push images
+## Available images
+- atreo/adminer:4.7.8
+- atreo/mysql:8.0.22
+- atreo/nginx:1.19.6
+- atreo/php:7.4.14
+- atreo/php:8.0.1
+- atreo/node:15.5.1
+
+## How to update image
 - docker login --username=martinpanek87 --password=********
-- cd image/mysql/8.0.22; bash build.sh
+- cd image/image-name/tag; bash build.sh
+
+## How to download updated image
+- docker rmi --force atreo/image-name:tag
+- run docker-sync-stack start
 
 ## How to implement into new project
 - install docker for mac https://docs.docker.com/docker-for-mac/install/
