@@ -16,7 +16,7 @@ services:
         image: atreo/mysql:8.0.22
         restart: always
         volumes:
-            - ./mysql-data:/var/lib/mysql
+            - ./example/mysql-data:/var/lib/mysql
         ports:
             - 3636:3306
 
