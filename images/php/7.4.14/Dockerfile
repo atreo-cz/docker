@@ -16,9 +16,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
     --filename=composer
 
 # Resolve permissions
-ARG www_data_uid
-ARG www_data_gid
-RUN if [ -n "$www_data_uid" ]; then deluser www-data && (addgroup --gid $www_data_gid www-data || addgroup --gid 33 www-data) && adduser --system --home /home/www-data --uid $www_data_uid --disabled-password --group www-data; fi;
+ARG www_data_uid=501
+ARG www_data_gid=20
+RUN deluser www-data && (addgroup --gid $www_data_gid www-data || addgroup --gid 33 www-data) && adduser --system --home /home/www-data --uid $www_data_uid --disabled-password --group www-data;
 RUN mkdir /srv/app && chown -R www-data:www-data /srv/app
 USER www-data
 
