@@ -1,8 +1,9 @@
 FROM php:8.0.1-fpm-buster
 
-RUN apt-get update && apt-get install -y nano git && apt-get clean;
+RUN apt-get update && apt-get install -y nano zip libzip-dev git && apt-get clean;
 
-RUN docker-php-ext-install pdo_mysql;
+RUN docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install zip;
 
 RUN	echo "upload_max_filesize = 512M" >> /usr/local/etc/php/conf.d/0-upload_large_dumps.ini \
     &&	echo "post_max_size = 512M" >> /usr/local/etc/php/conf.d/0-upload_large_dumps.ini \
