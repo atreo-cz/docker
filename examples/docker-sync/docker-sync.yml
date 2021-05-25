@@ -2,7 +2,7 @@ version: '2'
 syncs:
     api-sync-example:
         sync_userid: 501
-        src: './example/api'
+        src: './project/api'
         sync_excludes:
             - .git
             - .idea
@@ -15,17 +15,17 @@ syncs:
 
     api-sync-www-example:
         sync_userid: 501
-        src: './example/api/www'
+        src: './project/api/www'
         host_disk_mount_mode: 'cached'
 
     api-sync-vendor-example:
         sync_userid: 501
-        src: './example/api/vendor'
+        src: './project/api/vendor'
         host_disk_mount_mode: 'cached'
 
     web-sync-example:
         sync_userid: 501
-        src: './example/web'
+        src: './project/web'
         sync_excludes:
             - .git
             - .idea
@@ -37,5 +37,5 @@ syncs:
 
     web-sync-node-modules-example:
         sync_userid: 501
-        src: './example/web/node_modules'
+        src: './project/web/node_modules'
         host_disk_mount_mode: 'cached'

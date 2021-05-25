@@ -30,7 +30,7 @@ class AdminerLoginServers
      * Sets lists of supported database servers.
      *
      * Database server can be prefixed with driver name and can contain port and database name.
-     * For example:
+     * For project:
      * - mysql://localhost:3306 (server host and port)
      * - pgsql://localhost#database_name (server and database name)
      * - sqlite://database.db (relative path to database file, no authentication)

@@ -1,14 +1,14 @@
 version: '3.7'
 volumes:
-    api-sync-example:
+    api-sync-project:
         external: true
-    api-sync-www-example:
+    api-sync-www-project:
         external: true
-    api-sync-vendor-example:
+    api-sync-vendor-project:
         external: true
-    web-sync-example:
+    web-sync-project:
         external: true
-    web-sync-node-modules-example:
+    web-sync-node-modules-project:
         external: true
 
 services:
@@ -16,15 +16,15 @@ services:
         image: atreo/mysql:8.0.22
         restart: always
         volumes:
-            - ./example/mysql-data:/var/lib/mysql
+            - ./project/mysql-data:/var/lib/mysql
         ports:
             - 3636:3306
 
     nginx:
         image: atreo/nginx:1.19.6
         volumes:
-            - api-sync-www-example:/srv/app/www
-            - api-sync-vendor-example:/srv/app/vendor
+            - api-sync-www-project:/srv/app/www
+            - api-sync-vendor-project:/srv/app/vendor
         ports:
             - '8080:80'
         depends_on:
@@ -32,14 +32,14 @@ services:
 
     php:
         build:
-            context: ./example/docker/php
+            context: project/docker/php
             args:
                 www_data_uid: 501
                 www_data_gid: 20
         volumes:
-            - api-sync-example:/srv/app
-            - api-sync-www-example:/srv/app/www
-            - api-sync-vendor-example:/srv/app/vendor
+            - api-sync-project:/srv/app
+            - api-sync-www-project:/srv/app/www
+            - api-sync-vendor-project:/srv/app/vendor
 
     adminer:
         image: atreo/adminer:4.7.8
@@ -51,8 +51,8 @@ services:
     node:
         image: atreo/node:15.5.1
         volumes:
-            - web-sync-example:/srv/app
-            - web-sync-node-modules-example:/srv/app/node_modules
+            - web-sync-project:/srv/app
+            - web-sync-node-modules-project:/srv/app/node_modules
         ports:
             - 4444:4444
         depends_on:
