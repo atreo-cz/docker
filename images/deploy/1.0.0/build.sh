@@ -1,6 +1,6 @@
 vendor=atreo
-image=php
-tag=8.0.1-fpm-buster-slim
+image=deploy
+tag=1.0.0-buster-slim
 
 docker rmi --force $vendor/$image:$tag-arm64v8
 docker rmi --force $vendor/$image:$tag-amd64

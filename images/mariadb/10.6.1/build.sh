@@ -1,6 +1,6 @@
 vendor=atreo
-image=php
-tag=8.0.1-fpm-buster-slim
+image=mariadb
+tag=10.6.1-focal
 
 docker rmi --force $vendor/$image:$tag-arm64v8
 docker rmi --force $vendor/$image:$tag-amd64

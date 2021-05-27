@@ -6,10 +6,6 @@
 - atreo/php:8.0.1
 - atreo/node:15.5.1
 
-## How to update image
-- run `docker login --username=martinpanek87 --password=********`
-- run `cd image/image-name/tag; bash build.sh`
-
 ## How to download updated image
 - run `docker rmi --force atreo/image-name:tag`
 - run `docker-sync-stack start`

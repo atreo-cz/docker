@@ -13,9 +13,10 @@ function adminer_object()
     // Specify enabled plugins here.
     $plugins = [
         new AdminerDatabaseHide(["mysql", "information_schema", "performance_schema"]),
-        new AdminerLoginServers([
-            "mysql" => "mysql",
-        ]),
+//        new AdminerLoginServers([
+//            "mysql" => "mysql",
+//            "mariadb" => "mariadb",
+//        ]),
         new AdminerTablesFilter(),
         new AdminerSimpleMenu(),
         new AdminerCollations(["utf8_general_ci"]),

@@ -1,0 +1,10 @@
+image: atreo/node:15.5.1-buster-slim
+manifests:
+    - image: atreo/node:15.5.1-buster-slim-amd64
+      platform:
+          architecture: amd64
+          os: linux
+    - image: atreo/node:15.5.1-buster-slim-arm64v8
+      platform:
+          architecture: arm64
+          os: linux
