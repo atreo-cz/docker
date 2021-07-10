@@ -5,4 +5,5 @@ ENV POSTGRES_DB=app
 ENV POSTGRES_USER=root
 ENV POSTGRES_PASSWORD=toor
 
-CMD ["mysqld", "--default-authentication-plugin=mysql_native_password"]
+EXPOSE 5432
+CMD ["postgres"]
