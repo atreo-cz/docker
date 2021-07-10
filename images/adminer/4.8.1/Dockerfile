@@ -1,4 +1,4 @@
-FROM php:7.4.14-fpm-buster
+FROM php:8.0.1-fpm-buster
 
 RUN apt-get update && apt-get install -y nano libpq-dev && apt-get clean;
 
