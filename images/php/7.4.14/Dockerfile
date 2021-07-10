@@ -11,10 +11,14 @@ RUN	echo "upload_max_filesize = 512M" >> /usr/local/etc/php/conf.d/0-upload_larg
     &&	echo "max_execution_time = 600" >> /usr/local/etc/php/conf.d/0-upload_large_dumps.ini \
     &&	echo "max_input_vars = 5000" >> /usr/local/etc/php/conf.d/0-upload_large_dumps.ini
 
-# Install Composer
+# Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
     --install-dir=/usr/local/bin \
     --filename=composer
+
+# Install composer1
+RUN curl -o /usr/local/bin/composer1 https://getcomposer.org/download/1.10.22/composer.phar
+RUN chmod +x /usr/local/bin/composer1
 
 # Resolve permissions
 ARG www_data_uid=501
